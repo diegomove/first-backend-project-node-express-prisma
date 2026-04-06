@@ -1,7 +1,7 @@
 {
   "name": "chapter_2",
   "version": "1.0.0",
-  "description": "A simple backend server.",
+  "description": "testing the node package manager",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^5.2.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.14"
   }
 }

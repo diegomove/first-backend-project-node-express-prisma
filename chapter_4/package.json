@@ -1,22 +1,26 @@
 {
   "name": "chapter_4",
   "version": "1.0.0",
+  "description": "A dockerized full stack todo app with NodeJS, PostgreSQL database, Prisma ORM and JWT Authentication",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch --env-file=.env --experimental-strip-types --experimental-sqlite ./src/server.js",
+    "dev": "nodemon -L --watch ./src --ext js,json,mjs --exec \"node --env-file=.env\" ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Diego Moreno",
   "license": "ISC",
-  "description": "A dockerized full stack todo application that uses a NodeJS backend, a PostgreSQL database, a Prisma ORM, and JWT Authentication.",
   "dependencies": {
-    "@prisma/client": "^5.22.0",
-    "bcryptjs": "^2.4.3",
-    "express": "^4.21.1",
-    "jsonwebtoken": "^9.0.2",
-    "pg": "^8.13.1",
-    "prisma": "^5.22.0"
+    "@prisma/adapter-pg": "^7.6.0",
+    "@prisma/client": "^7.6.0",
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.20.0",
+    "prisma": "^7.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

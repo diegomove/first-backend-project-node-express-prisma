@@ -1,31 +1,32 @@
 version: '3'
 services:
   app:
-    build: .
-    container_name: todo-app
+    build: . # Build the Docker image using the Dockerfile in the current directory
+    container_name: todo-app # Name of the container
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/todoapp
-      - JWT_SECRET=your_jwt_secret_here
-      - NODE_ENV=development
-      - PORT=5003
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/todoapp # Database connection string
+      - JWT_SECRET=your_jwt_secret # Secret key for JWT
+      - NODE_ENV=development # Set the environment to development because we want to see the logs
+      - PORT=3000 # Port for the application
     ports:
-      - "5003:5003"
+      - "3000:3000" # Map port 3000 of the container to port 3000 on the host
     depends_on:
-      - db
+      - db # Ensure the database service starts before the app
     volumes:
-      - .:/app
+      - .:/app # Mount the current directory to /app in the container for live code changes
 
   db:
-    image: postgres:13-alpine
-    container_name: postgres-db
+    image: postgres:13-alpine # Use the official PostgreSQL image
+    container_name: todo-db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: todoapp
+      - POSTGRES_USER=postgres # Database username
+      - POSTGRES_PASSWORD=postgres # Database password
+      - POSTGRES_DB=todoapp # Database name
     ports:
       - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data # Persist database data
 
 volumes:
-  postgres-data:
+  postgres-data: # Named volume for PostgreSQL data persistence
+

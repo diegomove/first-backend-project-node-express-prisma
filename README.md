@@ -1,66 +1,106 @@
-# Node.js Backend Full Course | Modern Backend Development for 2025 🔥
+# Backend Full Course - Learning Project
 
-Master Node.js, Express.js, SQLite, PostgreSQL, Prisma, and Docker with this ultimate backend development course! Learn how to build REST API endpoints, implement JWT authentication, and handle CRUD database interactions through practical projects and foundational theory.  
+This is my first backend project. I built it while following a full course and then adapted parts of the code to understand the concepts better.
 
----
+## About this repository
 
-### **The Course Includes**  
-🔥 5+ hours of on-demand video.  
-⭐️ Comprehensive notes on backend concepts.  
-🧪 Access on mobile and TV.  
-🏆 4 amazing real-world projects.  
+This repository is organized by chapters, showing a progression from basic Express endpoints to authentication, ORM usage, and containerized deployment.
 
----
+## Learning goals
 
-### **Requirements**  
-No prior backend experience is needed! We'll just need a little bit of JavaScript knowledge to get started and then I’ll guide you from absolute zero to backend pro. 
-Any computer or OS—Windows, macOS, or Linux—works. We'll set up all the tools together during the course.  
+- Build REST APIs with Node.js and Express
+- Implement authentication with JWT
+- Hash passwords with bcryptjs
+- Work with database layers (SQLite and PostgreSQL)
+- Use Prisma ORM in a real API
+- Run services with Docker Compose
 
----
+## Project structure
 
-### **Description**  
+- chapter_1: Theory notes from the course
+- chapter_2: Intro Express server and API basics
+- chapter_3: Todo app with JWT auth and SQLite flow
+- chapter_4: Dockerized todo app with PostgreSQL + Prisma + JWT
 
-#### **Why is this the right Node.js course for you?**  
-This course is your all-in-one guide to mastering backend development with Node.js, Express.js, SQLite, PostgreSQL, Prisma, and Docker. It’s designed for beginners and intermediates alike, progressing from foundational concepts to real-world applications without requiring hundreds of hours to complete.  
+## Tech stack
 
-You’ll learn everything from how the internet works to how to build and deploy RESTful backend systems step-by-step. Through theory, practical examples, and fun projects, you’ll gain both the knowledge and hands-on experience needed to become a confident backend developer.  
+- Node.js
+- Express
+- JWT (jsonwebtoken)
+- bcryptjs
+- SQLite (chapter 3)
+- PostgreSQL (chapter 4)
+- Prisma ORM (chapter 4)
+- Docker and Docker Compose (chapter 4)
 
-We gradually develop 4 different backend projects, each building on the concepts learned in the previous one. This progression ensures that you’re always learning something new while solidifying your foundational skills.  
+## Quick start
 
----
+### Prerequisites
 
-### **What You’ll Build**  
+- Node.js 20+
+- npm
+- Docker Desktop (for chapter 4 Docker flow)
 
-- **Chapter 1:** A foundational theory lesson that explains how the full stack works and how the internet enables applications to communicate.  
-- **Chapter 2:** A beginner Node.js backend project that introduces you to backend basics, including REST APIs and CRUD operations.  
-- **Chapter 3:** A Node.js + Express.js backend app with SQLite that incorporates JWT authentication, serves a frontend, and integrates a SQLite database for data storage.  
-- **Chapter 4:** A full-stack project using Node.js, Express.js, PostgreSQL, Prisma, and Docker. This project replicates Chapter 3 but transitions to more advanced tools and containerization with Docker.  
+### Chapter 2
 
----
+```bash
+cd chapter_2
+npm install
+npm run dev
+```
 
-### **What You’ll Learn**  
-- How to build REST API endpoints for real-world applications.  
-- Implementing secure JWT authentication for user authentication.  
-- Setting up databases with SQLite and PostgreSQL.  
-- Interacting with databases using the Structured Query Language (SQL).
-- ORM basics and advanced queries with Prisma.  
-- Dockerizing your backend projects for easy deployment.  
-- How to think like a developer: planning features, architecting code, debugging, and more.  
+### Chapter 3
 
----
+```bash
+cd chapter_3
+npm install
+npm run dev
+```
 
-#### **Why am I the right teacher for you?**  
-Hi, I’m James! I’ve taught over 500,000 people how to code and start their development careers. As a self-taught programmer, I understand how challenging it can be to learn backend development. That’s why I’ve created a course that’s approachable, fun, and packed with real-world skills.  
+### Chapter 4 (recommended: Docker)
 
-With over 10 years of teaching experience in programming, mathematics, and sciences, I know how to explain complex concepts in a simple way. My mission is to help you become a confident backend developer and land your dream job.  
+```bash
+cd chapter_4
+docker compose up --build
+```
 
----
+App should be available at http://localhost:3000
 
-### **Instructor**  
-James holds an Honors degree in Civil Engineering but pivoted to software development after self-teaching programming. With over 10 years of private tutoring experience, he specializes in making coding accessible and enjoyable. James also runs a YouTube channel where he has helped thousands of aspiring developers.  
+### Chapter 4 (local, without Docker)
 
-Learn more at [smoljames.com](https://www.smoljames.com). Connect with me on Discord or LinkedIn for any questions!  
+```bash
+cd chapter_4
+npm install
+npx prisma generate
+npm run dev
+```
 
----  
+## API overview (chapter 4)
 
-Start building modern backend systems today and take your coding career to the next level! 🔥  
+- POST /auth/register: create user and return JWT
+- POST /auth/login: authenticate user and return JWT
+- GET /todos: list authenticated user todos
+- POST /todos: create todo
+- PUT /todos/:id: update todo completion
+- DELETE /todos/:id: delete todo
+
+## Testing requests
+
+You can use the included REST files with VS Code REST Client extension:
+
+- chapter_2/test.rest
+- chapter_3/todo-app.rest
+- chapter_4/todo-app.rest
+
+## Attribution
+
+This project was built by following these resources:
+
+- YouTube tutorial: https://www.youtube.com/watch?v=9BD9eK9VqXA
+- Original repository: https://github.com/jamezmca/backend-full-course.git
+
+This repository is for learning purposes and includes my own adaptations while following the course.
+
+## Author
+
+Diego Moreno
